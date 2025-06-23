@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import BenefitCard from '../components/BenefitCard';
+import BusinessSVG from '../components/SVGs/BusinessSVG';
+import AuditSVG from '../components/SVGs/AuditSVG';
+import StrategySVG from '../components/SVGs/StrategySVG';
+import GrowthSVG from '../components/SVGs/GrowthSVG';
+import SupportSVG from '../components/SVGs/SupportSVG';
 
-export default function App() {
+export default function Home() {
   // Estado para el formulario
   const [formData, setFormData] = useState({
     nombre: '',
@@ -68,19 +74,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] min-h-screen flex flex-col font-sans text-white">
-      {/* Header con logos */}
-      <header className="w-full px-4 py-5 flex justify-between items-center bg-white bg-opacity-10 backdrop-blur rounded-b-3xl shadow-lg transition-all duration-300 sticky top-0 z-50">
-        <div className="flex items-center gap-4">
-          <img src="https://escaladeventas.site/logo.png"  alt="Escaladeventas Logo" className="h-10 w-auto rounded-xl shadow transition-transform hover:scale-105" />
-          <span className="text-white text-2xl font-bold">x</span>
-          <img src="https://iaparanegocios.com/logo.png"  alt="IAParaNegocios Logo" className="h-10 w-auto rounded-xl shadow transition-transform hover:scale-105" />
-        </div>
-        <a href="#formulario" className="bg-blue-600 hover:bg-blue-800 transition-all duration-300 text-white px-6 py-2 rounded-2xl shadow-lg font-bold animate-pulse">
-          Agenda tu sesión
-        </a>
-      </header>
-
+    <>
       {/* Hero Section */}
       <section id="hero" className={`flex flex-col-reverse md:flex-row items-center md:justify-between gap-8 px-6 md:px-16 py-14 md:py-24 fade-in ${visibleSections.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="flex-1">
@@ -276,80 +270,6 @@ export default function App() {
           </a>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="mt-auto py-6 bg-black bg-opacity-30 text-white text-center rounded-t-3xl transition-all duration-300">
-        <span className="block text-sm">Escaladeventas.site x IAParaNegocios &copy; 2025 | Transformando empresas con estrategias y automatización real.</span>
-        <a href="https://wa.me/57TU_NUMERO"  className="mt-2 inline-block text-blue-300 underline hover:text-blue-500 transition">
-          ¿Dudas? Escribí directo a WhatsApp
-        </a>
-        <p className="mt-4 text-xs text-gray-400">
-          *Solo agendá si sos responsable de la toma de decisiones en tu empresa y realmente estás buscando implementar cambios que generen resultados. Valoro tu tiempo y el mío.
-        </p>
-      </footer>
-    </div>
-  );
-}
-
-// Componente para las tarjetas de beneficios
-function BenefitCard({ icon, title, description }) {
-  return (
-    <div className="bg-blue-800 bg-opacity-60 rounded-2xl p-6 shadow-lg flex items-center gap-4 hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-105">
-      <div className="relative">
-        <div className="absolute inset-0 bg-blue-400 opacity-30 blur-xl rounded-full h-14 w-14"></div>
-        <div className="relative z-10 text-blue-600">
-          {icon}
-        </div>
-      </div>
-      <div>
-        <p className="text-white font-bold text-xl">{title}</p>
-        <p className="text-white text-md">{description}</p>
-      </div>
-    </div>
-  );
-}
-
-// Componentes SVG personalizados
-function BusinessSVG({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M3 7H21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M16 21H8C7.46957 21 6.96086 20.7893 6.58579 20.4142C6.21071 20.0391 6 19.5304 6 19V19C6 18.4696 6.21071 17.9609 6.58579 17.5858C6.96086 17.2107 7.46957 17 8 17H16C16.5304 17 17.0391 17.2107 17.4142 17.5858C17.7893 17.9609 18 18.4696 18 19V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M16 21V19C16 18.4696 15.7893 17.9609 15.4142 17.5858C15.0391 17.2107 14.5304 17 14 17H10C9.46957 17 8.96086 17.2107 8.58579 17.5858C8.21071 17.9609 8 18.4696 8 19V21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-
-function AuditSVG({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 9V11M12 15H12.01M8 21H16C18.7614 21 21 18.7614 21 16V8C21 5.23858 18.7614 3 16 3H8C5.23858 3 3 5.23858 3 8V16C3 18.7614 5.23858 21 8 21Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-
-function StrategySVG({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8 7H16M8 11H16M8 15H16" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-
-function GrowthSVG({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 20L12 16M12 16L8 20M12 16L12 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-
-function SupportSVG({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 21C20 18.172 18.825 15.1301 17 13.0988C15.175 11.0674 12.638 10 10 10C7.362 10 4.825 11.0674 3 13.0988C1.175 15.1301 0 18.172 0 21M16 8C16 10.2091 14.2091 12 12 12C9.79086 12 8 10.2091 8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
+    </>
   );
 }
